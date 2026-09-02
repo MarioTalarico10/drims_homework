@@ -15,7 +15,7 @@ class UDPForceReceiver(Node):
 
         # ROS parameters
         self.declare_parameter('udp_ip', '0.0.0.0')
-        self.declare_parameter('udp_port', 5005)
+        self.declare_parameter('udp_port', 8000)
 
         self.udp_ip = self.get_parameter(
             'udp_ip'
@@ -61,23 +61,26 @@ class UDPForceReceiver(Node):
 
         except BlockingIOError:
             return
-
+            
         try:
             message = data.decode('utf-8')
-
             json_data = json.loads(message)
 
-            fx = float(json_data['fx'])
-            fy = float(json_data['fy'])
-            fz = float(json_data['fz'])
+            finger_1_mean = float(json_data['Finger 1 Mean'])
+            finger_2_mean = float(json_data['Finger 2 Mean'])
 
             msg = Vector3()
 
-            msg.x = fx
-            msg.y = fy
-            msg.z = fz
+            msg.x = finger_1_mean
+            msg.y = finger_2_mean
+            msg.z = 0.0
 
             self.publisher_.publish(msg)
+
+            self.get_logger().info(
+                f'Finger 1: {finger_1_mean:.3f}, '
+                f'Finger 2: {finger_2_mean:.3f}'
+            )
 
         except (json.JSONDecodeError, KeyError, ValueError) as e:
 
