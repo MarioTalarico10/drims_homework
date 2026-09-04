@@ -1,0 +1,8 @@
+# Empty request: calling the service starts one dice detection.
+
+---
+bool success
+sensor_msgs/CompressedImage annotated_image
+geometry_msgs/PoseStamped pose_world
+int32 face_value
+string message

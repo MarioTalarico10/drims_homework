@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<?xml-model
+  href="http://download.ros.org/schema/package_format3.xsd"
+  schematypens="http://www.w3.org/2001/XMLSchema"?>
+
+<package format="3">
+
+  <name>dice_detector</name>
+  <version>0.0.0</version>
+
+  <description>
+    Dice detector and dice detection service.
+  </description>
+
+  <maintainer email="drims@todo.todo">
+    drims
+  </maintainer>
+
+  <license>TODO: License declaration</license>
+
+  <!-- ROS Python -->
+  <depend>rclpy</depend>
+
+  <!-- Messages -->
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+
+  <!-- TF -->
+  <depend>tf2_ros</depend>
+
+  <!-- Custom service -->
+  <depend>dice_interfaces</depend>
+
+  <!-- Existing project dependency -->
+  <depend>drims2_msgs</depend>
+
+  <!-- Keep only if another node in the package still uses it -->
+  <depend>cv_bridge</depend>
+
+  <!-- Tests -->
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+
+</package>
