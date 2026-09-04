@@ -1,0 +1,15 @@
+COMANDI per lanciare simulazioni e test:
+
+- Collegare il terminale al container docker: cd DRIMS2-2026   ---> bash start.sh
+
+- Collegare multipli terminali al container docker: bash connect.sh
+
+- Riprodurre una rosbag: ros2 bag play bags/setup2/rosbag2_2026_09_01-09_31_31
+
+- Lanciare il nodo detector: ros2 run dice_detector dice_detector
+
+- Lanciare Rviz: ros2 launch drims_description ur5e_1_start.launch.py fake:=true
+
+- Lanciare il servizio: ros2 run dice_detector dice_detector_service
+
+- Chiamare il servizio: ros2 service call /detect_dice dice_interfaces/srv/DetectDice "{}"
